@@ -15,21 +15,73 @@
         nav {
             margin-bottom: 20px;
         }
-        nav a {
+        nav button {
             margin: 0 15px;
-            text-decoration: none;
             font-size: 18px;
             color: #007bff;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .subtitle {
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="index-cs.html">Čeština</a>
-        <a href="index-de.html">Deutsch</a>
-        <a href="index-ja.html">日本語</a>
+        <button onclick="setLang('en')">English</button>
+        <button onclick="setLang('cs')">Čeština</button>
+        <button onclick="setLang('de')">Deutsch</button>
+        <button onclick="setLang('ja')">日本語</button>
     </nav>
-    <h1>Mini adventures... and yes, FUN</h1>
-    <p>The website is under development. We’ll be back soon!</p>
+    <h1 id="main-title"></h1>
+    <div class="subtitle" id="subtitle"></div>
+    <div class="content" id="content"></div>
+    <script>
+        const texts = {
+            en: {
+                title: "MINTURES - Miniature Adventures",
+                subtitle: "Small games with a huge heart",
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod. Sed euismod, nisl euismod euismod, nisi nisi euismod nisi, euismod euismod nisi nisi euismod."
+            },
+            cs: {
+                title: "MINTURES - Miniaturní dobrodružství",
+                subtitle: "Malé hry s velkým srdcem",
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod. Sed euismod, nisl euismod euismod, nisi nisi euismod nisi, euismod euismod nisi nisi euismod."
+            },
+            de: {
+                title: "MINTURES - Miniaturabenteuer",
+                subtitle: "Kleine Spiele mit großem Herz",
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod. Sed euismod, nisl euismod euismod, nisi nisi euismod nisi, euismod euismod nisi nisi euismod."
+            },
+            ja: {
+                title: "MINTURES - ミニチュアアドベンチャー",
+                subtitle: "小さなゲーム、大きな心",
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod. Sed euismod, nisl euismod euismod, nisi nisi euismod nisi, euismod euismod nisi nisi euismod."
+            }
+        };
+
+        function setLang(lang) {
+            document.getElementById('main-title').textContent = texts[lang].title;
+            document.getElementById('subtitle').textContent = texts[lang].subtitle;
+            document.getElementById('content').textContent = texts[lang].content;
+        }
+
+        // Default language
+        setLang('en');
+    </script>
 </body>
 </html>
